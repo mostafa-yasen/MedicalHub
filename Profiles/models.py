@@ -19,6 +19,7 @@ class Patient(models.Model):
     mail = models.EmailField()
     age = models.PositiveSmallIntegerField(default=8)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    bio = models.TextField(default='No BIO.')
     NID = models.CharField(max_length=14, null=False, blank=False)
 
     def __str__(self):
@@ -35,9 +36,11 @@ class Doctor(models.Model):
     mail = models.EmailField()
     age = models.PositiveSmallIntegerField(default=22)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    bio = models.TextField(default='No BIO.')
     specialization = models.CharField(max_length=50, choices=JOB_CHOICES)
     NID = models.CharField(max_length=14, null=False, blank=False)
     Job_ID = models.CharField(max_length=14, null=False, blank=False)
+    rate = models.FloatField(default=0.0)
 
     def __str__(self):
         return "Dr. %s %s" % (self.first_name, self.last_name)
