@@ -3,6 +3,7 @@ from datetime import datetime
 from django.conf import settings
 from django.contrib.auth.models import User
 from profiles.models import Doctor, Patient
+from communities.models import Community
 
 
 class Post(models.Model):
@@ -11,6 +12,7 @@ class Post(models.Model):
     content = models.TextField()
     time = models.TimeField(default=datetime.now, null=False, blank=False)
     likes = models.IntegerField(default=0, null=False)
+    community = models.ForeignKey(Community, on_delete=models.CASCADE)
 
     def __str__(self):
         return "%s - %s" % (self.pk, self.title)
@@ -32,6 +34,7 @@ class Question(models.Model):
     content = models.TextField()
     time = models.TimeField(default=datetime.now, null=False, blank=False)
     answered = models.BooleanField(default=False, null=False)
+    community = models.ForeignKey(Community, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return "%s - %s" % (self.creator.__str__(), self.asked_to.__str__())
