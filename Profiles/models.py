@@ -13,10 +13,11 @@ JOB_CHOICES = (
 )
 
 class Patient(models.Model):
+    avatar = models.ImageField(upload_to='avatars/', default='No Image')
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     mail = models.EmailField()
-    age = models.IntegerField(default=8)
+    age = models.PositiveSmallIntegerField(default=8)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     NID = models.CharField(max_length=14, null=False, blank=False)
 
@@ -28,10 +29,11 @@ class Patient(models.Model):
 
 
 class Doctor(models.Model):
+    avatar = models.ImageField(upload_to='avatars/', default='No Image')
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     mail = models.EmailField()
-    age = models.IntegerField(default=22)
+    age = models.PositiveSmallIntegerField(default=22)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     specialization = models.CharField(max_length=50, choices=JOB_CHOICES)
     NID = models.CharField(max_length=14, null=False, blank=False)
