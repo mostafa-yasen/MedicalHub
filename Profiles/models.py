@@ -26,7 +26,7 @@ class Patient(models.Model):
         if self.gender == 'M':
             return "Mr. %s %s" % (self.first_name, self.last_name)
         else:
-            return "Mr. %s %s" % (self.first_name, self.last_name)
+            return "Mrs. %s %s" % (self.first_name, self.last_name)
 
 
 class Doctor(models.Model):
