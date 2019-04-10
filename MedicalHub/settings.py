@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'profiles',
     'communities',
     'communities.discussion',
+    'medical',
+    'medical.diagnose',
 ]
 
 MIDDLEWARE = [
