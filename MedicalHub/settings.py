@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'communities.discussion',
     'medical',
     'medical.diagnose',
+    'medical.information',
 ]
 
 MIDDLEWARE = [
